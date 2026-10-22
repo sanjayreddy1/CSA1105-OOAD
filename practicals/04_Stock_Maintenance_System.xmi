@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:umldi="http://www.omg.org/spec/UML/20131001/UMLDI" xmlns:di="http://www.omg.org/spec/DD/20110901/DI" xmlns:dc="http://www.omg.org/spec/DD/20110901/DC">
+  <uml:Model xmi:id="model_1" name="Stock Maintenance System">
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_usecase" name="UseCaseView">
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_0" name="Customer"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_1" name="Stock Dealer"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_2" name="Central Stock System"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_0" name="Browse Items"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_1" name="Place Order">
+        <include xmi:type="uml:Include" xmi:id="inc_1" addition="uc_2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_2" name="Purchase Items">
+        <include xmi:type="uml:Include" xmi:id="inc_2" addition="uc_3"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_3" name="Check Stock Availability"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_4" name="Verify Order"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_5" name="Deliver Items">
+        <include xmi:type="uml:Include" xmi:id="inc_3" addition="uc_6"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_6" name="Update Stock Details"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_0" name="Customer - Browse Items" memberEnd="ua_0_1 ua_0_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_0_1" type="actor_0" association="ua_0"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_0_2" type="uc_0" association="ua_0"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_1" name="Customer - Place Order" memberEnd="ua_1_1 ua_1_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_1_1" type="actor_0" association="ua_1"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_1_2" type="uc_1" association="ua_1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_2" name="Customer - Purchase Items" memberEnd="ua_2_1 ua_2_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_2_1" type="actor_0" association="ua_2"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_2_2" type="uc_2" association="ua_2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_3" name="Stock Dealer - Purchase Items" memberEnd="ua_3_1 ua_3_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_3_1" type="actor_1" association="ua_3"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_3_2" type="uc_2" association="ua_3"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_4" name="Stock Dealer - Deliver Items" memberEnd="ua_4_1 ua_4_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_4_1" type="actor_1" association="ua_4"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_4_2" type="uc_5" association="ua_4"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_5" name="Central Stock System - Check Stock Availability" memberEnd="ua_5_1 ua_5_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_5_1" type="actor_2" association="ua_5"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_5_2" type="uc_3" association="ua_5"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_6" name="Central Stock System - Verify Order" memberEnd="ua_6_1 ua_6_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_6_1" type="actor_2" association="ua_6"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_6_2" type="uc_4" association="ua_6"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_7" name="Central Stock System - Update Stock Details" memberEnd="ua_7_1 ua_7_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_7_1" type="actor_2" association="ua_7"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_7_2" type="uc_6" association="ua_7"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_class" name="ClassView">
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_0" name="Customer">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_0_at0" name="customerId" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_0_at1" name="name" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_0_at2" name="address" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_0_op0" name="placeOrder()" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_0_op1" name="purchaseItems()" visibility="public"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_1" name="StockDealer">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_1_at0" name="dealerId" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_1_at1" name="name" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_1_op0" name="processOrder()" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_1_op1" name="deliverItems()" visibility="public"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_2" name="CentralStockSystem">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_2_at0" name="stockRecords" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_2_op0" name="verifyOrder()" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_2_op1" name="updateStock()" visibility="public"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_3" name="Order">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_3_at0" name="orderId" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_3_at1" name="date" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_3_at2" name="status" visibility="private"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_4" name="Item">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_4_at0" name="itemId" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_4_at1" name="name" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_4_at2" name="price" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_4_at3" name="quantity" visibility="private"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_0" name="places" memberEnd="ca_0_1 ca_0_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_0_1" name="customer" type="cls_0" association="ca_0"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_0_2" name="order" type="cls_3" association="ca_0"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_1" name="contains" memberEnd="ca_1_1 ca_1_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_1_1" name="order" type="cls_3" association="ca_1"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_1_2" name="item" type="cls_4" association="ca_1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_2" name="buys through" memberEnd="ca_2_1 ca_2_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_2_1" name="customer" type="cls_0" association="ca_2"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_2_2" name="stockDealer" type="cls_1" association="ca_2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_3" name="uses" memberEnd="ca_3_1 ca_3_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_3_1" name="stockDealer" type="cls_1" association="ca_3"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_3_2" name="centralStockSystem" type="cls_2" association="ca_3"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_4" name="maintains" memberEnd="ca_4_1 ca_4_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_4_1" name="centralStockSystem" type="cls_2" association="ca_4"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_4_2" name="item" type="cls_4" association="ca_4"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_seq" name="SequenceView">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="collab_1" name="Collaboration">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_0" name="customer" type="cls_0"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_1" name="stockDealer" type="cls_1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_2" name="centralStockSystem" type="cls_2"/>
+        <ownedBehavior xmi:type="uml:Interaction" xmi:id="int_1" name="Stock Maintenance System Sequence">
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_0" name="Customer" represents="role_0" coveredBy="os_0s os_3r"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_1" name="StockDealer" represents="role_1" coveredBy="os_0r os_1s os_2r os_3s os_4s"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_2" name="CentralStockSystem" represents="role_2" coveredBy="os_1r os_2s os_4r"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_0s" covered="ll_0" message="msg_0"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_0r" covered="ll_1" message="msg_0"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_1s" covered="ll_1" message="msg_1"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_1r" covered="ll_2" message="msg_1"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_2s" covered="ll_2" message="msg_2"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_2r" covered="ll_1" message="msg_2"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_3s" covered="ll_1" message="msg_3"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_3r" covered="ll_0" message="msg_3"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_4s" covered="ll_1" message="msg_4"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_4r" covered="ll_2" message="msg_4"/>
+          <message xmi:type="uml:Message" xmi:id="msg_0" name="1: placeOrder()" messageSort="synchCall" sendEvent="os_0s" receiveEvent="os_0r"/>
+          <message xmi:type="uml:Message" xmi:id="msg_1" name="2: verifyOrder()" messageSort="synchCall" sendEvent="os_1s" receiveEvent="os_1r"/>
+          <message xmi:type="uml:Message" xmi:id="msg_2" name="3: orderVerified()" messageSort="reply" sendEvent="os_2s" receiveEvent="os_2r"/>
+          <message xmi:type="uml:Message" xmi:id="msg_3" name="4: deliverItems()" messageSort="synchCall" sendEvent="os_3s" receiveEvent="os_3r"/>
+          <message xmi:type="uml:Message" xmi:id="msg_4" name="5: updateStock()" messageSort="synchCall" sendEvent="os_4s" receiveEvent="os_4r"/>
+        </ownedBehavior>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+  <umldi:UMLClassDiagram xmi:id="dg_uc" name="Stock Maintenance System - Use Case Diagram" modelElement="pkg_usecase">
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_actor_0" modelElement="actor_0"><bounds xmi:type="dc:Bounds" x="50" y="135" width="80" height="110"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_actor_1" modelElement="actor_1"><bounds xmi:type="dc:Bounds" x="50" y="385" width="80" height="110"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_actor_2" modelElement="actor_2"><bounds xmi:type="dc:Bounds" x="830" y="468" width="80" height="110"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_0" modelElement="uc_0"><bounds xmi:type="dc:Bounds" x="330" y="58" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_1" modelElement="uc_1"><bounds xmi:type="dc:Bounds" x="330" y="158" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_2" modelElement="uc_2"><bounds xmi:type="dc:Bounds" x="330" y="258" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_3" modelElement="uc_3"><bounds xmi:type="dc:Bounds" x="330" y="358" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_4" modelElement="uc_4"><bounds xmi:type="dc:Bounds" x="330" y="458" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_5" modelElement="uc_5"><bounds xmi:type="dc:Bounds" x="330" y="558" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_6" modelElement="uc_6"><bounds xmi:type="dc:Bounds" x="330" y="658" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_0" modelElement="ua_0" source="sh_actor_0" target="sh_uc_0"><waypoint xmi:type="dc:Point" x="130" y="190"/><waypoint xmi:type="dc:Point" x="330" y="90"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_1" modelElement="ua_1" source="sh_actor_0" target="sh_uc_1"><waypoint xmi:type="dc:Point" x="130" y="190"/><waypoint xmi:type="dc:Point" x="330" y="190"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_2" modelElement="ua_2" source="sh_actor_0" target="sh_uc_2"><waypoint xmi:type="dc:Point" x="130" y="190"/><waypoint xmi:type="dc:Point" x="330" y="290"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_3" modelElement="ua_3" source="sh_actor_1" target="sh_uc_2"><waypoint xmi:type="dc:Point" x="130" y="440"/><waypoint xmi:type="dc:Point" x="330" y="290"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_4" modelElement="ua_4" source="sh_actor_1" target="sh_uc_5"><waypoint xmi:type="dc:Point" x="130" y="440"/><waypoint xmi:type="dc:Point" x="330" y="590"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_5" modelElement="ua_5" source="sh_actor_2" target="sh_uc_3"><waypoint xmi:type="dc:Point" x="830" y="523"/><waypoint xmi:type="dc:Point" x="630" y="390"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_6" modelElement="ua_6" source="sh_actor_2" target="sh_uc_4"><waypoint xmi:type="dc:Point" x="830" y="523"/><waypoint xmi:type="dc:Point" x="630" y="490"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_7" modelElement="ua_7" source="sh_actor_2" target="sh_uc_6"><waypoint xmi:type="dc:Point" x="830" y="523"/><waypoint xmi:type="dc:Point" x="630" y="690"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_inc_1" modelElement="inc_1" source="sh_uc_1" target="sh_uc_2"><waypoint xmi:type="dc:Point" x="480" y="222"/><waypoint xmi:type="dc:Point" x="480" y="258"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_inc_2" modelElement="inc_2" source="sh_uc_2" target="sh_uc_3"><waypoint xmi:type="dc:Point" x="480" y="322"/><waypoint xmi:type="dc:Point" x="480" y="358"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_inc_3" modelElement="inc_3" source="sh_uc_5" target="sh_uc_6"><waypoint xmi:type="dc:Point" x="480" y="622"/><waypoint xmi:type="dc:Point" x="480" y="658"/></ownedElement>
+  </umldi:UMLClassDiagram>
+  <umldi:UMLClassDiagram xmi:id="dg_cls" name="Stock Maintenance System - Class Diagram" modelElement="pkg_class">
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_0" modelElement="cls_0"><bounds xmi:type="dc:Bounds" x="40" y="40" width="240" height="140"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_1" modelElement="cls_1"><bounds xmi:type="dc:Bounds" x="360" y="40" width="240" height="122"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_2" modelElement="cls_2"><bounds xmi:type="dc:Bounds" x="680" y="40" width="240" height="104"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_3" modelElement="cls_3"><bounds xmi:type="dc:Bounds" x="40" y="270" width="240" height="104"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_4" modelElement="cls_4"><bounds xmi:type="dc:Bounds" x="360" y="270" width="240" height="122"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_0" modelElement="ca_0" source="sh_cls_0" target="sh_cls_3"><waypoint xmi:type="dc:Point" x="160" y="110"/><waypoint xmi:type="dc:Point" x="160" y="322"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_1" modelElement="ca_1" source="sh_cls_3" target="sh_cls_4"><waypoint xmi:type="dc:Point" x="160" y="322"/><waypoint xmi:type="dc:Point" x="480" y="331"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_2" modelElement="ca_2" source="sh_cls_0" target="sh_cls_1"><waypoint xmi:type="dc:Point" x="160" y="110"/><waypoint xmi:type="dc:Point" x="480" y="101"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_3" modelElement="ca_3" source="sh_cls_1" target="sh_cls_2"><waypoint xmi:type="dc:Point" x="480" y="101"/><waypoint xmi:type="dc:Point" x="800" y="92"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_4" modelElement="ca_4" source="sh_cls_2" target="sh_cls_4"><waypoint xmi:type="dc:Point" x="800" y="92"/><waypoint xmi:type="dc:Point" x="480" y="331"/></ownedElement>
+  </umldi:UMLClassDiagram>
+  <umldi:UMLInteractionDiagram xmi:id="dg_seq" name="Stock Maintenance System - Sequence Diagram" modelElement="int_1">
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_ll_0" modelElement="ll_0"><bounds xmi:type="dc:Bounds" x="40" y="40" width="160" height="420"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_ll_1" modelElement="ll_1"><bounds xmi:type="dc:Bounds" x="280" y="40" width="160" height="420"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_ll_2" modelElement="ll_2"><bounds xmi:type="dc:Bounds" x="520" y="40" width="160" height="420"/></ownedElement>
+  </umldi:UMLInteractionDiagram>
+</xmi:XMI>

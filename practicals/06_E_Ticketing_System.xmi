@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.omg.org/spec/UML/20090901" xmlns:umldi="http://www.omg.org/spec/UML/20131001/UMLDI" xmlns:di="http://www.omg.org/spec/DD/20110901/DI" xmlns:dc="http://www.omg.org/spec/DD/20110901/DC">
+  <uml:Model xmi:id="model_1" name="E-Ticketing System">
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_usecase" name="UseCaseView">
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_0" name="Passenger"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_1" name="Central System"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_2" name="Railway Reservation System"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_0" name="Search Trains">
+        <include xmi:type="uml:Include" xmi:id="inc_1" addition="uc_3"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_1" name="Provide Journey Details"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_2" name="Reserve Ticket">
+        <include xmi:type="uml:Include" xmi:id="inc_2" addition="uc_4"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_3" name="Fetch Train Information"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_4" name="Make Payment">
+        <include xmi:type="uml:Include" xmi:id="inc_3" addition="uc_5"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_5" name="Generate E-Ticket"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_6" name="Cancel Ticket"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_0" name="Passenger - Search Trains" memberEnd="ua_0_1 ua_0_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_0_1" type="actor_0" association="ua_0"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_0_2" type="uc_0" association="ua_0"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_1" name="Passenger - Provide Journey Details" memberEnd="ua_1_1 ua_1_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_1_1" type="actor_0" association="ua_1"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_1_2" type="uc_1" association="ua_1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_2" name="Passenger - Reserve Ticket" memberEnd="ua_2_1 ua_2_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_2_1" type="actor_0" association="ua_2"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_2_2" type="uc_2" association="ua_2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_3" name="Passenger - Make Payment" memberEnd="ua_3_1 ua_3_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_3_1" type="actor_0" association="ua_3"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_3_2" type="uc_4" association="ua_3"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_4" name="Passenger - Cancel Ticket" memberEnd="ua_4_1 ua_4_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_4_1" type="actor_0" association="ua_4"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_4_2" type="uc_6" association="ua_4"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_5" name="Central System - Reserve Ticket" memberEnd="ua_5_1 ua_5_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_5_1" type="actor_1" association="ua_5"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_5_2" type="uc_2" association="ua_5"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_6" name="Central System - Generate E-Ticket" memberEnd="ua_6_1 ua_6_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_6_1" type="actor_1" association="ua_6"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_6_2" type="uc_5" association="ua_6"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ua_7" name="Railway Reservation System - Fetch Train Information" memberEnd="ua_7_1 ua_7_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_7_1" type="actor_2" association="ua_7"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ua_7_2" type="uc_3" association="ua_7"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_class" name="ClassView">
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_0" name="Passenger">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_0_at0" name="passengerId" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_0_at1" name="name" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_0_at2" name="age" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_0_at3" name="phone" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_0_op0" name="searchTrains()" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_0_op1" name="reserveTicket()" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_0_op2" name="cancelTicket()" visibility="public"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_1" name="CentralSystem">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_1_at0" name="bookingRecords" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_1_op0" name="processReservation()" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_1_op1" name="generateETicket()" visibility="public"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_2" name="RailwayReservationSystem">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_2_at0" name="trainDatabase" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_2_op0" name="provideTrainInfo()" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cls_2_op1" name="checkSeats()" visibility="public"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_3" name="ETicket">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_3_at0" name="pnr" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_3_at1" name="trainNo" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_3_at2" name="journeyDate" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_3_at3" name="seatNo" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_3_at4" name="fare" visibility="private"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_4" name="Payment">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_4_at0" name="paymentId" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_4_at1" name="amount" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_4_at2" name="mode" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="cls_4_at3" name="status" visibility="private"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_0" name="books through" memberEnd="ca_0_1 ca_0_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_0_1" name="passenger" type="cls_0" association="ca_0"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_0_2" name="centralSystem" type="cls_1" association="ca_0"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_1" name="gets info from" memberEnd="ca_1_1 ca_1_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_1_1" name="centralSystem" type="cls_1" association="ca_1"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_1_2" name="railwayReservationSystem" type="cls_2" association="ca_1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_2" name="generates" memberEnd="ca_2_1 ca_2_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_2_1" name="centralSystem" type="cls_1" association="ca_2"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_2_2" name="eTicket" type="cls_3" association="ca_2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_3" name="holds" memberEnd="ca_3_1 ca_3_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_3_1" name="passenger" type="cls_0" association="ca_3"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_3_2" name="eTicket" type="cls_3" association="ca_3"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_4" name="paid by" memberEnd="ca_4_1 ca_4_2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_4_1" name="eTicket" type="cls_3" association="ca_4"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_4_2" name="payment" type="cls_4" association="ca_4"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_seq" name="SequenceView">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="collab_1" name="Collaboration">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_0" name="passenger" type="cls_0"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_1" name="centralSystem" type="cls_1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_2" name="railwayReservationSystem" type="cls_2"/>
+        <ownedBehavior xmi:type="uml:Interaction" xmi:id="int_1" name="E-Ticketing System Sequence">
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_0" name="Passenger" represents="role_0" coveredBy="os_0s os_3s os_4r"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_1" name="CentralSystem" represents="role_1" coveredBy="os_0r os_1s os_2r os_3r os_4s"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_2" name="RailwayReservationSystem" represents="role_2" coveredBy="os_1r os_2s"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_0s" covered="ll_0" message="msg_0"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_0r" covered="ll_1" message="msg_0"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_1s" covered="ll_1" message="msg_1"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_1r" covered="ll_2" message="msg_1"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_2s" covered="ll_2" message="msg_2"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_2r" covered="ll_1" message="msg_2"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_3s" covered="ll_0" message="msg_3"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_3r" covered="ll_1" message="msg_3"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_4s" covered="ll_1" message="msg_4"/>
+          <fragment xmi:type="uml:OccurrenceSpecification" xmi:id="os_4r" covered="ll_0" message="msg_4"/>
+          <message xmi:type="uml:Message" xmi:id="msg_0" name="1: searchTrains()" messageSort="synchCall" sendEvent="os_0s" receiveEvent="os_0r"/>
+          <message xmi:type="uml:Message" xmi:id="msg_1" name="2: provideTrainInfo()" messageSort="synchCall" sendEvent="os_1s" receiveEvent="os_1r"/>
+          <message xmi:type="uml:Message" xmi:id="msg_2" name="3: trainDetails()" messageSort="reply" sendEvent="os_2s" receiveEvent="os_2r"/>
+          <message xmi:type="uml:Message" xmi:id="msg_3" name="4: reserveTicket()" messageSort="synchCall" sendEvent="os_3s" receiveEvent="os_3r"/>
+          <message xmi:type="uml:Message" xmi:id="msg_4" name="5: generateETicket()" messageSort="synchCall" sendEvent="os_4s" receiveEvent="os_4r"/>
+        </ownedBehavior>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+  <umldi:UMLClassDiagram xmi:id="dg_uc" name="E-Ticketing System - Use Case Diagram" modelElement="pkg_usecase">
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_actor_0" modelElement="actor_0"><bounds xmi:type="dc:Bounds" x="50" y="295" width="80" height="110"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_actor_1" modelElement="actor_1"><bounds xmi:type="dc:Bounds" x="830" y="485" width="80" height="110"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_actor_2" modelElement="actor_2"><bounds xmi:type="dc:Bounds" x="830" y="335" width="80" height="110"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_0" modelElement="uc_0"><bounds xmi:type="dc:Bounds" x="330" y="58" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_1" modelElement="uc_1"><bounds xmi:type="dc:Bounds" x="330" y="158" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_2" modelElement="uc_2"><bounds xmi:type="dc:Bounds" x="330" y="258" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_3" modelElement="uc_3"><bounds xmi:type="dc:Bounds" x="330" y="358" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_4" modelElement="uc_4"><bounds xmi:type="dc:Bounds" x="330" y="458" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_5" modelElement="uc_5"><bounds xmi:type="dc:Bounds" x="330" y="558" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_uc_6" modelElement="uc_6"><bounds xmi:type="dc:Bounds" x="330" y="658" width="300" height="64"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_0" modelElement="ua_0" source="sh_actor_0" target="sh_uc_0"><waypoint xmi:type="dc:Point" x="130" y="350"/><waypoint xmi:type="dc:Point" x="330" y="90"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_1" modelElement="ua_1" source="sh_actor_0" target="sh_uc_1"><waypoint xmi:type="dc:Point" x="130" y="350"/><waypoint xmi:type="dc:Point" x="330" y="190"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_2" modelElement="ua_2" source="sh_actor_0" target="sh_uc_2"><waypoint xmi:type="dc:Point" x="130" y="350"/><waypoint xmi:type="dc:Point" x="330" y="290"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_3" modelElement="ua_3" source="sh_actor_0" target="sh_uc_4"><waypoint xmi:type="dc:Point" x="130" y="350"/><waypoint xmi:type="dc:Point" x="330" y="490"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_4" modelElement="ua_4" source="sh_actor_0" target="sh_uc_6"><waypoint xmi:type="dc:Point" x="130" y="350"/><waypoint xmi:type="dc:Point" x="330" y="690"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_5" modelElement="ua_5" source="sh_actor_1" target="sh_uc_2"><waypoint xmi:type="dc:Point" x="830" y="540"/><waypoint xmi:type="dc:Point" x="630" y="290"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_6" modelElement="ua_6" source="sh_actor_1" target="sh_uc_5"><waypoint xmi:type="dc:Point" x="830" y="540"/><waypoint xmi:type="dc:Point" x="630" y="590"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ua_7" modelElement="ua_7" source="sh_actor_2" target="sh_uc_3"><waypoint xmi:type="dc:Point" x="830" y="390"/><waypoint xmi:type="dc:Point" x="630" y="390"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_inc_1" modelElement="inc_1" source="sh_uc_0" target="sh_uc_3"><waypoint xmi:type="dc:Point" x="480" y="122"/><waypoint xmi:type="dc:Point" x="480" y="358"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_inc_2" modelElement="inc_2" source="sh_uc_2" target="sh_uc_4"><waypoint xmi:type="dc:Point" x="480" y="322"/><waypoint xmi:type="dc:Point" x="480" y="458"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_inc_3" modelElement="inc_3" source="sh_uc_4" target="sh_uc_5"><waypoint xmi:type="dc:Point" x="480" y="522"/><waypoint xmi:type="dc:Point" x="480" y="558"/></ownedElement>
+  </umldi:UMLClassDiagram>
+  <umldi:UMLClassDiagram xmi:id="dg_cls" name="E-Ticketing System - Class Diagram" modelElement="pkg_class">
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_0" modelElement="cls_0"><bounds xmi:type="dc:Bounds" x="40" y="40" width="240" height="176"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_1" modelElement="cls_1"><bounds xmi:type="dc:Bounds" x="360" y="40" width="240" height="104"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_2" modelElement="cls_2"><bounds xmi:type="dc:Bounds" x="680" y="40" width="240" height="104"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_3" modelElement="cls_3"><bounds xmi:type="dc:Bounds" x="40" y="306" width="240" height="140"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_cls_4" modelElement="cls_4"><bounds xmi:type="dc:Bounds" x="360" y="306" width="240" height="122"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_0" modelElement="ca_0" source="sh_cls_0" target="sh_cls_1"><waypoint xmi:type="dc:Point" x="160" y="128"/><waypoint xmi:type="dc:Point" x="480" y="92"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_1" modelElement="ca_1" source="sh_cls_1" target="sh_cls_2"><waypoint xmi:type="dc:Point" x="480" y="92"/><waypoint xmi:type="dc:Point" x="800" y="92"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_2" modelElement="ca_2" source="sh_cls_1" target="sh_cls_3"><waypoint xmi:type="dc:Point" x="480" y="92"/><waypoint xmi:type="dc:Point" x="160" y="376"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_3" modelElement="ca_3" source="sh_cls_0" target="sh_cls_3"><waypoint xmi:type="dc:Point" x="160" y="128"/><waypoint xmi:type="dc:Point" x="160" y="376"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLEdge" xmi:id="ed_ca_4" modelElement="ca_4" source="sh_cls_3" target="sh_cls_4"><waypoint xmi:type="dc:Point" x="160" y="376"/><waypoint xmi:type="dc:Point" x="480" y="367"/></ownedElement>
+  </umldi:UMLClassDiagram>
+  <umldi:UMLInteractionDiagram xmi:id="dg_seq" name="E-Ticketing System - Sequence Diagram" modelElement="int_1">
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_ll_0" modelElement="ll_0"><bounds xmi:type="dc:Bounds" x="40" y="40" width="160" height="420"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_ll_1" modelElement="ll_1"><bounds xmi:type="dc:Bounds" x="280" y="40" width="160" height="420"/></ownedElement>
+    <ownedElement xmi:type="umldi:UMLShape" xmi:id="sh_ll_2" modelElement="ll_2"><bounds xmi:type="dc:Bounds" x="520" y="40" width="160" height="420"/></ownedElement>
+  </umldi:UMLInteractionDiagram>
+</xmi:XMI>
