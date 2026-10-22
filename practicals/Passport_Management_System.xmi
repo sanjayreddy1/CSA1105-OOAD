@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1"
+         xmlns:xmi="http://schema.omg.org/spec/XMI/2.1"
+         xmlns:uml="http://www.omg.org/spec/UML/20090901">
+
+  <uml:Model xmi:id="model_1" name="PassportManagementSystem">
+
+    <!-- ===================== USE CASE VIEW ===================== -->
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_usecase" name="UseCaseView">
+
+      <!-- Actors (Users) -->
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_applicant" name="Applicant"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_office" name="PassportOffice"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="actor_central" name="CentralComputer"/>
+
+      <!-- Use Cases -->
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_apply" name="Apply for Passport">
+        <include xmi:type="uml:Include" xmi:id="inc_1" addition="uc_submit"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_submit" name="Submit Passport Details"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_forward" name="Forward Details to Central Computer"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_verify" name="Verify Applicant Details"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_approve" name="Provide Approval">
+        <include xmi:type="uml:Include" xmi:id="inc_2" addition="uc_verify"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_issue" name="Issue Passport">
+        <include xmi:type="uml:Include" xmi:id="inc_3" addition="uc_approve"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="uc_receive" name="Receive Passport"/>
+
+      <!-- Associations: actor - use case -->
+      <packagedElement xmi:type="uml:Association" xmi:id="a_1" name="Applicant-Apply"
+                       memberEnd="a_1_e1 a_1_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_1_e1" type="actor_applicant" association="a_1"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_1_e2" type="uc_apply" association="a_1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="a_2" name="Applicant-Submit"
+                       memberEnd="a_2_e1 a_2_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_2_e1" type="actor_applicant" association="a_2"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_2_e2" type="uc_submit" association="a_2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="a_3" name="Office-Forward"
+                       memberEnd="a_3_e1 a_3_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_3_e1" type="actor_office" association="a_3"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_3_e2" type="uc_forward" association="a_3"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="a_4" name="Central-Verify"
+                       memberEnd="a_4_e1 a_4_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_4_e1" type="actor_central" association="a_4"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_4_e2" type="uc_verify" association="a_4"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="a_5" name="Central-Approve"
+                       memberEnd="a_5_e1 a_5_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_5_e1" type="actor_central" association="a_5"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_5_e2" type="uc_approve" association="a_5"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="a_6" name="Office-Issue"
+                       memberEnd="a_6_e1 a_6_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_6_e1" type="actor_office" association="a_6"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_6_e2" type="uc_issue" association="a_6"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="a_7" name="Applicant-Receive"
+                       memberEnd="a_7_e1 a_7_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_7_e1" type="actor_applicant" association="a_7"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="a_7_e2" type="uc_receive" association="a_7"/>
+      </packagedElement>
+    </packagedElement>
+
+    <!-- ===================== CLASS VIEW ===================== -->
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_class" name="ClassView">
+
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_applicant" name="Applicant">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="applicant_id" name="applicantId" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="applicant_name" name="name" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="applicant_dob" name="dateOfBirth" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="applicant_addr" name="address" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="op_apply" name="applyPassport" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="op_submit" name="submitDetails" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="op_receive" name="receivePassport" visibility="public"/>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_office" name="PassportOffice">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="office_id" name="officeId" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="office_loc" name="location" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="op_forward" name="sendDetailsToCentral" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="op_issue" name="issuePassport" visibility="public"/>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_central" name="CentralComputer">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="central_db" name="passportDatabase" visibility="private"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="op_verify" name="verifyDetails" visibility="public"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="op_approve" name="provideApproval" visibility="public"/>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Class" xmi:id="cls_passport" name="Passport">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="pp_no" name="passportNumber" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="pp_issue" name="issueDate" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="pp_expiry" name="expiryDate" visibility="private"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="pp_status" name="status" visibility="private"/>
+      </packagedElement>
+
+      <!-- Class associations -->
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_1" name="submits" memberEnd="ca_1_e1 ca_1_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_1_e1" name="applicant" type="cls_applicant" association="ca_1">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca_1_l1" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="ca_1_u1" value="*"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_1_e2" name="office" type="cls_office" association="ca_1">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca_1_l2" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="ca_1_u2" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_2" name="sendsDetailsTo" memberEnd="ca_2_e1 ca_2_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_2_e1" name="office" type="cls_office" association="ca_2">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca_2_l1" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="ca_2_u1" value="*"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_2_e2" name="central" type="cls_central" association="ca_2">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca_2_l2" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="ca_2_u2" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_3" name="issues" memberEnd="ca_3_e1 ca_3_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_3_e1" name="office" type="cls_office" association="ca_3">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca_3_l1" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="ca_3_u1" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_3_e2" name="passport" type="cls_passport" association="ca_3">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca_3_l2" value="0"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="ca_3_u2" value="*"/>
+        </ownedEnd>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_4" name="owns" memberEnd="ca_4_e1 ca_4_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_4_e1" name="holder" type="cls_applicant" association="ca_4">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca_4_l1" value="1"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="ca_4_u1" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_4_e2" name="passport" type="cls_passport" association="ca_4">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca_4_l2" value="0"/>
+          <upperValue xmi:type="uml:LiteralInteger" xmi:id="ca_4_u2" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+
+      <packagedElement xmi:type="uml:Association" xmi:id="ca_5" name="verifiesAgainst" memberEnd="ca_5_e1 ca_5_e2">
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_5_e1" name="central" type="cls_central" association="ca_5"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="ca_5_e2" name="applicant" type="cls_applicant" association="ca_5"/>
+      </packagedElement>
+    </packagedElement>
+
+    <!-- ===================== INTERACTION (SEQUENCE) VIEW ===================== -->
+    <packagedElement xmi:type="uml:Package" xmi:id="pkg_seq" name="SequenceView">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="collab_1" name="IssuePassportCollaboration">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_app" name="applicant" type="cls_applicant"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_off" name="office" type="cls_office"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="role_cen" name="central" type="cls_central"/>
+        <ownedBehavior xmi:type="uml:Interaction" xmi:id="int_1" name="IssuePassport">
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_app" name="Applicant" represents="role_app"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_off" name="PassportOffice" represents="role_off"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="ll_cen" name="CentralComputer" represents="role_cen"/>
+
+          <message xmi:type="uml:Message" xmi:id="m1" name="1: submitDetails()" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="m2" name="2: sendDetailsToCentral()" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="m3" name="3: verifyDetails()" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="m4" name="4: provideApproval()" messageSort="reply"/>
+          <message xmi:type="uml:Message" xmi:id="m5" name="5: issuePassport()" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="m6" name="6: receivePassport()" messageSort="reply"/>
+        </ownedBehavior>
+      </packagedElement>
+    </packagedElement>
+
+  </uml:Model>
+</xmi:XMI>
